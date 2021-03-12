@@ -14,7 +14,7 @@ import { InfoCircleOutlined } from '@ant-design/icons';
 
 
 import { Block, Button } from '../../../components';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // const { Option } = Select;
 

@@ -1,9 +1,16 @@
-import {Auth} from 'pages';
+import { Route } from 'react-router-dom';
+
+import {Auth, Home} from 'pages';
 
 function App() {
   return (
     <div className="wrapper">
-      <Auth />
+      <Route exact path="/im">
+        <Home />
+      </Route>
+      <Route path={["/", "/login"]}>
+        <Auth />
+      </Route>      
     </div>
   );
 }
