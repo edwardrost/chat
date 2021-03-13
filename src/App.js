@@ -8,7 +8,7 @@ function App() {
       <Route exact path="/im">
         <Home />
       </Route>
-      <Route path={["/", "/login"]}>
+      <Route path={["/", "/login", "/register"]}>
         <Auth />
       </Route>      
     </div>

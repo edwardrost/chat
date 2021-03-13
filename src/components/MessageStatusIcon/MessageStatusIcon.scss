@@ -1,0 +1,19 @@
+.message-status {
+    &__icon-read {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        bottom: 22px;
+        left: -25px;
+    }
+    
+    &__icon-unread {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        bottom: 22px;
+        left: -25px;
+    }
+}
+
+

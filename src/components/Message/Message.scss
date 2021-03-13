@@ -42,13 +42,37 @@
         line-height: 20px;
     }
 
-    &__icon-read {
-        width: 15px;
-        height: 15px;
-        position: absolute;
-        bottom: 22px;
-        left: -25px;
+    &__attachments {
+        display: flex;
+        margin-bottom: 5px;
+        &-item {
+            margin-right: 5px;
+            cursor: pointer;
+            img {
+                width: 45px;
+                height: 45px;
+                border-radius: 8px;
+            }
+        }
     }
+
+    // &__icon-read {
+    //     width: 15px;
+    //     height: 15px;
+    //     position: absolute;
+    //     bottom: 22px;
+    //     left: -25px;
+    // }
+
+    // &__icon-unread {
+    //     width: 10px;
+    //     height: 10px;
+    //     position: absolute;
+    //     bottom: 22px;
+    //     left: -25px;
+    // }
+
+
 
     
     &--isme {
@@ -87,5 +111,78 @@
                 color: $black;
             }
         }
-    }    
+    }
+    
+    &__typing {
+        .dot{
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background: #c1c1c1;
+            display: block;
+            float: left;
+            margin: 0 0 0 8px;
+            &:first-child{
+                margin: 0;
+            }
+            &.one{
+                animation: cycleOne 1s ease-in-out infinite;
+                animation-direction: normal;
+            }
+            &.two{
+                animation: cycleTwo 1s ease-in-out infinite;
+                animation-direction: normal;
+            }
+            &.three{
+                animation: cycleThree 1s ease-in-out infinite;
+                animation-direction: normal;
+            }
+        }
+    }
+          
+    @keyframes cycleOne{
+            0%{
+              background: rgba(150, 150, 150, 0.4);
+            }
+            33.333%{
+              background: rgba(150, 150, 150, 1);
+            }
+            66.6667%{
+              background: rgba(150, 150, 150, 0.4);
+            }
+            100%{
+              background: rgba(150, 150, 150, 0.4);
+            }
+    }
+          
+    @keyframes cycleTwo{
+            0%{
+              background: rgba(150, 150, 150, 0.4);
+            }
+            33.333%{
+              background: rgba(150, 150, 150, 0.4);
+            }
+            66.6667%{
+              background: rgba(150, 150, 150, 1);
+            }
+            100%{
+              background: rgba(150, 150, 150, 0.4);
+            }
+    }
+          
+    @keyframes cycleThree{
+            0%{
+              background: rgba(150, 150, 150, 0.4);
+            }
+            33.333%{
+              background: rgba(150, 150, 150, 0.4);
+            }
+            66.6667%{
+              background: rgba(150, 150, 150, 0.4);
+            }
+            100%{
+              background: rgba(150, 150, 150, 1);
+            }
+    }
+
 }
