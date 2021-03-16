@@ -7,22 +7,49 @@ import unreadSvg from '../../assets/img/unread.svg';
 import './MessageStatusIcon.scss';
 
 const MessageStatusIcon = ({isMe, isRead}) => (
-    <div>
-        {isMe && isRead &&  
-        (<img
-            className="message-status__icon-read"
-            src={readSvg}
-            alt="Read Icon"
-        />)}
+    <>
+    {isMe && isRead && 
+        (
+            <img
+                className="message-status__icon-read"
+                src={readSvg}
+                alt="Read Icon"
+            />
+        )
+    }
 
-        {isMe && !isRead && 
-        (<img
-            className="message-status__icon-unread"
-            src={unreadSvg}
-            alt="Unread Icon"
-        />)}
-    </div>    
+    {isMe && !isRead &&
+        (
+            <img
+                className="message-status__icon-unread"
+                src={unreadSvg}
+                alt="Unread Icon"
+            />
+        )
+    }
+
+    {!isMe && 
+        (null)
+    }
+    </>
 );
+// (
+//     <div>
+//         {isMe && isRead &&  
+//         (<img
+//             className="message-status__icon-read"
+//             src={readSvg}
+//             alt="Read Icon"
+//         />)}
+
+//         {isMe && !isRead && 
+//         (<img
+//             className="message-status__icon-unread"
+//             src={unreadSvg}
+//             alt="Unread Icon"
+//         />)}
+//     </div>    
+// );
 
 MessageStatusIcon.propTypes = {
     isMe: PropTypes.bool,
