@@ -1,0 +1,16 @@
+.avatar {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    // display: block;
+    // background-color: red;
+    &--symbol {
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+        line-height: 48px;
+        font-size: 18px;
+    }
+}
