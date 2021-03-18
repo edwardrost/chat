@@ -1,0 +1,22 @@
+.chat-input {
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+
+    &__btn {
+        opacity: 0.4;
+        &:hover{
+            opacity: 1;
+        }
+        cursor: pointer;
+        margin: 0 12px; 
+
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+}

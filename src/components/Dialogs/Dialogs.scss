@@ -7,6 +7,10 @@
         margin-bottom: 20px;
         $item: &;
 
+        &-search {
+            padding: 0 20px 20px 20px;
+        }
+
         &-avatar {
             position: relative;
             flex: 0 0 40px;

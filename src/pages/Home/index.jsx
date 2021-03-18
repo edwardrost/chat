@@ -1,17 +1,24 @@
 import React from 'react';
-// import tinycolor from 'tinycolor';
+// import { Input } from 'antd';
+import { TeamOutlined, FormOutlined, EllipsisOutlined } from '@ant-design/icons';
 
 import Dialogs from '../../components/Dialogs';
 import Message from '../../components/Message';
-// import { Route } from 'react-router-dom';
-import { Input } from 'antd';
-import { TeamOutlined, FormOutlined, EllipsisOutlined } from '@ant-design/icons';
+import OnlineStatus from '../../components/OnlineStatus';
+import ChatInput from '../../components/ChatInput';
+
 
 import './Home.scss';
 
-const { Search } = Input;
-const onSearch = value => console.log(value);
 
+// const { Search } = Input;
+
+// let filteredItems = items;
+
+const onSearch = e => {};
+//         filteredItems = filteredItems.filter(dialogs => dialogs.user.fullname.indexOf(e.target.value) >= 0 );
+//         setValue(e.target.value);
+// };
 
 const Home = () => (
     <section className="home">
@@ -22,9 +29,9 @@ const Home = () => (
                     <span>Dialogs</span>
                     <FormOutlined />
                 </div>
-                <div className="chat__sidebar-search">
+                {/* <div className="chat__sidebar-search">
                     <Search placeholder="type the name" allowClear onSearch={onSearch} style={{ width: "100%" }} />
-                </div>
+                </div> */}
                 <div className="chat__sidebar-dialogs">
                     <Dialogs
                         userId={0}
@@ -230,25 +237,8 @@ const Home = () => (
                                 }
                             }
                         ]}
-                    />
-
-                    <Dialogs
-                        userId={1}
-                        items={[
-                            {
-                                _id: Math.random(),
-                                text: 'Programming is a skill best acquired by practice and example rather than from books.',
-                                // isRead: false,
-                                created_at: new Date(2021, 3, 17),
-                                user: {
-                                    _id: "c342cdb7d4ad65f3467f1ab056f1f9c6",
-                                    fullname: 'Alan Turing',
-                                    // isOnline: true,
-                                    avatar: 'data:image/jpeg;base64,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'
-                                }
-                            }
-                        ]}
-                    />
+                        onSearch={onSearch}
+                   />                    
                 </div>
             </div>
             <div className="chat__dialog">
@@ -259,7 +249,8 @@ const Home = () => (
                             Cesar
                         </b>
                         <div className="chat__dialog-header-status">
-                            <span className="status status--online">online</span>
+                            <OnlineStatus online={true} />
+                            {/* <span className="status status--online">online</span> */}
                         </div>
                     </div>
                     <EllipsisOutlined style={{ fontSize: '20px' }} />
@@ -297,9 +288,62 @@ const Home = () => (
 
                     <Message
                         avatar="https://sun1-87.userapi.com/s/v1/if1/T6FofuoGgve5VdaUcsecPhB2-0cHWFA-8sKi8hZuve7WrZ9M4dwPDMCTX5iYO9Ljri9hWb-F.jpg?size=50x0&quality=96&crop=618,132,1551,1551&ava=1"
+                        text="Shalom, Bro, I'm fine. What about you? Shalom, Bro, I'm fine. What about you? Shalom, Bro, I'm fine. What about you?"
+                        date="Fri Mar 12 2021 14:36:00"
+                        isMe={false}
+                        isRead={true}
+                    />
+
+                    <Message
+                        avatar="https://sun1-87.userapi.com/s/v1/if1/T6FofuoGgve5VdaUcsecPhB2-0cHWFA-8sKi8hZuve7WrZ9M4dwPDMCTX5iYO9Ljri9hWb-F.jpg?size=50x0&quality=96&crop=618,132,1551,1551&ava=1"
+                        text="Shalom, Bro, I'm fine. What about you? Shalom, Bro, I'm fine. What about you? Shalom, Bro, I'm fine. What about you?"
+                        date="Fri Mar 12 2021 14:36:00"
+                        isMe={true}
+                        isRead={true}
+                    />
+
+                    <Message
+                        avatar="https://sun1-87.userapi.com/s/v1/if1/T6FofuoGgve5VdaUcsecPhB2-0cHWFA-8sKi8hZuve7WrZ9M4dwPDMCTX5iYO9Ljri9hWb-F.jpg?size=50x0&quality=96&crop=618,132,1551,1551&ava=1"
+                        text="Shalom, Bro, I'm fine. What about you? Shalom, Bro, I'm fine. What about you? Shalom, Bro, I'm fine. What about you?"
+                        date="Fri Mar 12 2021 14:36:00"
+                        isMe={false}
+                        isRead={true}
+                    />
+
+                    <Message
+                        avatar="https://sun1-87.userapi.com/s/v1/if1/T6FofuoGgve5VdaUcsecPhB2-0cHWFA-8sKi8hZuve7WrZ9M4dwPDMCTX5iYO9Ljri9hWb-F.jpg?size=50x0&quality=96&crop=618,132,1551,1551&ava=1"
+                        text="Shalom, Bro, I'm fine. What about you? Shalom, Bro, I'm fine. What about you? Shalom, Bro, I'm fine. What about you?"
+                        date="Fri Mar 12 2021 14:36:00"
+                        isMe={true}
+                        isRead={true}
+                    />
+                    
+                    <Message
+                        avatar="https://sun1-87.userapi.com/s/v1/if1/T6FofuoGgve5VdaUcsecPhB2-0cHWFA-8sKi8hZuve7WrZ9M4dwPDMCTX5iYO9Ljri9hWb-F.jpg?size=50x0&quality=96&crop=618,132,1551,1551&ava=1"
+                        text="Shalom, Bro, I'm fine. What about you? Shalom, Bro, I'm fine. What about you? Shalom, Bro, I'm fine. What about you?"
+                        date="Fri Mar 12 2021 14:36:00"
+                        isMe={true}
+                        isRead={true}
+                    />
+
+                    <Message
+                        avatar="https://sun1-87.userapi.com/s/v1/if1/T6FofuoGgve5VdaUcsecPhB2-0cHWFA-8sKi8hZuve7WrZ9M4dwPDMCTX5iYO9Ljri9hWb-F.jpg?size=50x0&quality=96&crop=618,132,1551,1551&ava=1"
+                        text="Shalom, Bro, I'm fine. What about you? Shalom, Bro, I'm fine. What about you? Shalom, Bro, I'm fine. What about you?"
+                        date="Fri Mar 12 2021 14:36:00"
+                        isMe={true}
+                        isRead={true}
+                    />
+
+                    <Message
+                        avatar="https://sun1-87.userapi.com/s/v1/if1/T6FofuoGgve5VdaUcsecPhB2-0cHWFA-8sKi8hZuve7WrZ9M4dwPDMCTX5iYO9Ljri9hWb-F.jpg?size=50x0&quality=96&crop=618,132,1551,1551&ava=1"
                         isTyping
                     />
                 </div>
+
+                <div className="chat__dialog-input">
+                   <ChatInput />
+                </div>
+
             </div>
         </div>
     </section>
